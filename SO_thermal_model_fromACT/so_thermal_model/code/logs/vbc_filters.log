@@ -1,0 +1,128 @@
+Traceback (most recent call last):
+  File "./filter_sim", line 35, in <module>
+    stack = filters.OpticalStack.from_config(cfgfp)
+  File "/mnt/act3/users/mlungu/work/170218/code/cryolib/filters.py", line 263, in from_config
+Traceback (most recent call last):
+  File "./filter_sim", line 35, in <module>
+    stack = filters.OpticalStack.from_config(cfgfp)
+  File "/mnt/act3/users/mlungu/work/170218/code/cryolib/filters.py", line 263, in from_config
+Traceback (most recent call last):
+  File "./filter_sim", line 35, in <module>
+    stack = filters.OpticalStack.from_config(cfgfp)
+  File "/mnt/act3/users/mlungu/work/170218/code/cryolib/filters.py", line 263, in from_config
+Traceback (most recent call last):
+  File "./filter_sim", line 35, in <module>
+    stack = filters.OpticalStack.from_config(cfgfp)
+  File "/mnt/act3/users/mlungu/work/170218/code/cryolib/filters.py", line 263, in from_config
+Traceback (most recent call last):
+  File "./filter_sim", line 35, in <module>
+    stack = filters.OpticalStack.from_config(cfgfp)
+  File "/mnt/act3/users/mlungu/work/170218/code/cryolib/filters.py", line 263, in from_config
+Traceback (most recent call last):
+  File "./filter_sim", line 35, in <module>
+    stack = filters.OpticalStack.from_config(cfgfp)
+Traceback (most recent call last):
+  File "./filter_sim", line 35, in <module>
+    stack = filters.OpticalStack.from_config(cfgfp)
+  File "/mnt/act3/users/mlungu/work/170218/code/cryolib/filters.py", line 263, in from_config
+Traceback (most recent call last):
+  File "./filter_sim", line 35, in <module>
+    stack = filters.OpticalStack.from_config(cfgfp)
+  File "/mnt/act3/users/mlungu/work/170218/code/cryolib/filters.py", line 263, in from_config
+Traceback (most recent call last):
+  File "./filter_sim", line 35, in <module>
+    stack = filters.OpticalStack.from_config(cfgfp)
+  File "/mnt/act3/users/mlungu/work/170218/code/cryolib/filters.py", line 263, in from_config
+Traceback (most recent call last):
+  File "./filter_sim", line 35, in <module>
+    stack = filters.OpticalStack.from_config(cfgfp)
+  File "/mnt/act3/users/mlungu/work/170218/code/cryolib/filters.py", line 263, in from_config
+Traceback (most recent call last):
+  File "./filter_sim", line 35, in <module>
+    stack = filters.OpticalStack.from_config(cfgfp)
+  File "/mnt/act3/users/mlungu/work/170218/code/cryolib/filters.py", line 263, in from_config
+    self = cls(modelID,stages)
+UnboundLocalError: local variable 'modelID' referenced before assignment
+    self = cls(modelID,stages)
+UnboundLocalError: local variable 'modelID' referenced before assignment
+Traceback (most recent call last):
+  File "./filter_sim", line 35, in <module>
+    stack = filters.OpticalStack.from_config(cfgfp)
+  File "/mnt/act3/users/mlungu/work/170218/code/cryolib/filters.py", line 263, in from_config
+Traceback (most recent call last):
+  File "./filter_sim", line 35, in <module>
+    stack = filters.OpticalStack.from_config(cfgfp)
+  File "/mnt/act3/users/mlungu/work/170218/code/cryolib/filters.py", line 263, in from_config
+Traceback (most recent call last):
+  File "./filter_sim", line 35, in <module>
+    stack = filters.OpticalStack.from_config(cfgfp)
+  File "/mnt/act3/users/mlungu/work/170218/code/cryolib/filters.py", line 263, in from_config
+Traceback (most recent call last):
+  File "./filter_sim", line 35, in <module>
+    stack = filters.OpticalStack.from_config(cfgfp)
+  File "/mnt/act3/users/mlungu/work/170218/code/cryolib/filters.py", line 263, in from_config
+    self = cls(modelID,stages)
+    self = cls(modelID,stages)
+UnboundLocalError: local variable 'modelID' referenced before assignment
+    self = cls(modelID,stages)
+UnboundLocalError: local variable 'modelID' referenced before assignment
+  File "/mnt/act3/users/mlungu/work/170218/code/cryolib/filters.py", line 263, in from_config
+    self = cls(modelID,stages)
+UnboundLocalError: local variable 'modelID' referenced before assignment
+    self = cls(modelID,stages)
+UnboundLocalError: local variable 'modelID' referenced before assignment
+    self = cls(modelID,stages)
+UnboundLocalError: local variable 'modelID' referenced before assignment
+Traceback (most recent call last):
+  File "./filter_sim", line 35, in <module>
+    stack = filters.OpticalStack.from_config(cfgfp)
+    self = cls(modelID,stages)
+UnboundLocalError: local variable 'modelID' referenced before assignment
+    self = cls(modelID,stages)
+UnboundLocalError: local variable 'modelID' referenced before assignment
+    self = cls(modelID,stages)
+UnboundLocalError: local variable 'modelID' referenced before assignment
+Traceback (most recent call last):
+  File "./filter_sim", line 35, in <module>
+    stack = filters.OpticalStack.from_config(cfgfp)
+    self = cls(modelID,stages)
+UnboundLocalError: local variable 'modelID' referenced before assignment
+    self = cls(modelID,stages)
+UnboundLocalError: local variable 'modelID' referenced before assignment
+    self = cls(modelID,stages)
+UnboundLocalError: local variable 'modelID' referenced before assignment
+UnboundLocalError: local variable 'modelID' referenced before assignment
+    self = cls(modelID,stages)
+UnboundLocalError: local variable 'modelID' referenced before assignment
+Traceback (most recent call last):
+  File "./filter_sim", line 35, in <module>
+    stack = filters.OpticalStack.from_config(cfgfp)
+  File "/mnt/act3/users/mlungu/work/170218/code/cryolib/filters.py", line 263, in from_config
+    self = cls(modelID,stages)
+UnboundLocalErrorTraceback (most recent call last):
+  File "./filter_sim", line 35, in <module>
+    stack = filters.OpticalStack.from_config(cfgfp)
+  File "/mnt/act3/users/mlungu/work/170218/code/cryolib/filters.py", line 263, in from_config
+    self = cls(modelID,stages)
+UnboundLocalError: local variable 'modelID' referenced before assignment
+Traceback (most recent call last):
+  File "./filter_sim", line 35, in <module>
+    stack = filters.OpticalStack.from_config(cfgfp)
+  File "/mnt/act3/users/mlungu/work/170218/code/cryolib/filters.py", line 263, in from_config
+    self = cls(modelID,stages)
+UnboundLocalError: local variable 'modelID' referenced before assignment
+  File "/mnt/act3/users/mlungu/work/170218/code/cryolib/filters.py", line 263, in from_config
+    self = cls(modelID,stages)
+UnboundLocalError: local variable 'modelID' referenced before assignment
+  File "/mnt/act3/users/mlungu/work/170218/code/cryolib/filters.py", line 263, in from_config
+    self = cls(modelID,stages)
+: local variable 'modelID' referenced before assignment
+UnboundLocalError: local variable 'modelID' referenced before assignment
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   PID 2735 RUNNING AT node030
+=   EXIT CODE: 1
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+===================================================================================

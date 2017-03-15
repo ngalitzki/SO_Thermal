@@ -1,0 +1,145 @@
+#!/usr/lib/python2.7/bin/python -u
+
+import sys
+sys.path.insert(0,'/mnt/act3/users/mlungu/software/build/lib64/python2.7/site-packages')
+
+import matplotlib as mpl
+from matplotlib import rc
+rc('text', usetex=True)
+mpl.use('Agg')
+import pylab
+
+import numpy as np
+import sys
+
+from cryolib import filters
+
+# Initialize filter stack
+
+cfgfp = sys.argv[1]
+stack = filters.OpticalStack.from_config(cfgfp)
+
+# Plot stuff
+
+if len(stack.stages) == 6:
+  c = ['k','r','y','g','c','b']
+elif len(stack.stages) == 5:
+  c = ['k','y','g','c','b']
+
+Ws = []
+
+for i in range(len(c)):
+  Ws.append(mpl.patches.Rectangle((0,0),1,1, color = c[i]))
+
+mpl.pyplot.gcf().set_size_inches(8,7)
+
+for i in range(stack.size):
+  element = stack.elements[i]
+  stage = stack.stagenum[i]
+
+  if type(stack.elements[i]) == filters.HemiSphere:
+
+    if element.plane[-1][0] == -1:
+      W1 = mpl.patches.Wedge((0,element.origin[-1][0]), element.radius+0.004, \
+                              180, 0, color = c[stage], alpha = 1.0, zorder = 0)
+      W2 = mpl.patches.Wedge((0,element.origin[-1][0]), element.radius, \
+                              180, 0, color = 'w', alpha = 1.0, zorder = 1)
+    else:
+      W1 = mpl.patches.Wedge((0,element.origin[-1][0]), element.radius+0.004, \
+                              0, 180, color = c[stage], alpha = 1.0, zorder = 0)
+      W2 = mpl.patches.Wedge((0,element.origin[-1][0]), element.radius, \
+                              0, 180, color = 'w', alpha = 1.0, zorder = 1)
+
+    mpl.pyplot.gca().add_artist(W1)
+    mpl.pyplot.gca().add_artist(W2)
+
+  elif type(stack.elements[i]) in [filters.Disk, filters.LayeredDisk]:
+    R = mpl.patches.Rectangle((-element.radius,element.origin[-1][0]), \
+                              2*element.radius, element.thickness, \
+                              alpha = 1.0, color = c[stage], zorder = 3)
+    mpl.pyplot.gca().add_artist(R)
+    
+  elif type(stack.elements[i]) == filters.Ring:
+    r1 = element.radius
+    r2 = r1+element.ring_width
+
+    if element.plane[-1][0] == 1:
+      R1 = mpl.patches.Rectangle((-r2,element.origin[-1][0]-0.004), r2-r1, \
+                                 0.004, color = c[stage], alpha = 1.0, \
+                                 zorder = 3)
+      R2 = mpl.patches.Rectangle((r1,element.origin[-1][0]-0.004), r2-r1, \
+                                 0.004, color = c[stage], alpha = 1.0, \
+                                 zorder = 3)
+
+    else:
+      R1 = mpl.patches.Rectangle((-r2,element.origin[-1][0]), r2-r1, \
+                                 0.004, color = c[stage], alpha = 1.0, \
+                                 zorder = 3)
+      R2 = mpl.patches.Rectangle((r1,element.origin[-1][0]), r2-r1, \
+                                 0.004, color = c[stage], alpha = 1.0, \
+                                 zorder = 3)
+    mpl.pyplot.gca().add_artist(R1)
+    mpl.pyplot.gca().add_artist(R2)
+
+  elif type(stack.elements[i]) == filters.Cylinder:
+    R1 = mpl.patches.Rectangle((-element.radius-0.004, element.origin[-1][0]), \
+                               0.004, element.height, color = c[stage], \
+                               alpha = 1.0, zorder = 3)
+    R2 = mpl.patches.Rectangle((element.radius, element.origin[-1][0]), \
+                               0.004, element.height, color = c[stage], \
+                               alpha = 1.0, zorder = 3)
+    mpl.pyplot.gca().add_artist(R1)
+    mpl.pyplot.gca().add_artist(R2)
+
+# Plot some rays
+
+rays = stack.elements[0].generate_rays(10000000)
+d = stack.elements[-1].intersect(rays)[0].flatten()
+
+mask = (d != np.inf)
+rays.reduce(mask)
+d = d[mask]
+
+idx = (stack.names == '4K Plate')
+d1 = stack.elements[idx][0].intersect(rays)[0].flatten()
+mask = (d1 == np.inf)
+rays.reduce(mask)
+d = d[mask]
+
+idx = (stack.names == 'Lyot Stop Top')
+d1 = stack.elements[idx][0].intersect(rays)[0].flatten()
+mask = (d1 == np.inf)
+rays.reduce(mask)
+d = d[mask]
+
+t = np.arange(2)*np.vstack([d,d]).T
+XX = rays.origin[:,0]+rays.direction[:,0]*t
+YY = rays.origin[:,1]+rays.direction[:,1]*t
+ZZ = rays.origin[:,2]+rays.direction[:,2]*t
+
+mask = np.all(XX > -0.01,1)*np.all(XX < 0.01,1)
+
+XX = XX[mask]
+YY = YY[mask]
+ZZ = ZZ[mask]
+
+for i in range(0,len(XX)):
+  mpl.pyplot.plot(np.sign(YY[i,:])*np.sqrt(XX[i,:]**2+YY[i,:]**2), ZZ[i,:], \
+                  'k', lw = 0.2, alpha = 0.3, zorder = 4)
+
+# Save plot
+
+mpl.pyplot.xlabel(r'\rm{X [m]}', fontsize = 14)
+mpl.pyplot.ylabel(r'\rm{Z [m]}', fontsize = 14)
+mpl.pyplot.title(r'\rm{%s Filters}' %stack.id, fontsize = 18)
+
+mpl.pyplot.legend(Ws, [r'\rm{%.1f K}' %stage for stage in stack.stages], \
+                  fontsize = 14)
+
+mpl.pyplot.tick_params(labelsize = 14)
+mpl.pyplot.grid('on', zorder = 2)
+mpl.pyplot.xlim(-1,1)
+mpl.pyplot.ylim(-0.4,1.4)
+mpl.pyplot.gca().invert_yaxis()
+mpl.pyplot.tight_layout()
+mpl.pyplot.savefig('../plots/%s.png' %stack.id.lower())
